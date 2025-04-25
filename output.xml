@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2025-04-22T16:44:36.397330" rpa="false" schemaversion="5">
+<suite id="s1" name="Wagering TC DDT" source="c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot">
+<test id="s1-t1" name="Test case to get the length" line="149">
+<kw name="Get count of games from json file">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-04-22T16:44:36.882363" level="INFO">${Wager_details_file} = {'wager_details': [{'Game_Name': 'Euro Jackpot', 'No_Boards': 5, 'bet_type': '', 'draw_name': ''}, {'Game_Name': 'Powerball', 'No_Boards': 2, 'bet_type': '', 'draw_name': ''}, {'Game_Name': 'Mega Mill...</msg>
+<var>${Wager_details_file}</var>
+<arg>Wager_details.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.881363" elapsed="0.001999"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-04-22T16:44:36.894373" level="INFO">${Games_List} = ['Euro Jackpot', 'Powerball', 'Mega Millions', 'Lotto', 'Pick 3', 'Pick 4', 'All or Nothing']</msg>
+<var>${Games_List}</var>
+<arg>${Wager_details_file}</arg>
+<arg>$..Game_Name</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-04-22T16:44:36.883362" elapsed="0.011011"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.895362" level="INFO">Length is 7.</msg>
+<msg time="2025-04-22T16:44:36.895362" level="INFO">${Games_count} = 7</msg>
+<var>${Games_count}</var>
+<arg>${Games_List}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.895362" level="INFO">7</msg>
+<arg>${Games_count}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.896363" level="INFO">Euro Jackpot</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">0</var>
+<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.897363" level="INFO">Powerball</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.001000"/>
+</kw>
+<var name="${counter}">1</var>
+<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.897363" level="INFO">Mega Millions</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">2</var>
+<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.897363" level="INFO">Lotto</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.001000"/>
+</kw>
+<var name="${counter}">3</var>
+<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.001000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.898363" level="INFO">Pick 3</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">4</var>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.898363" level="INFO">Pick 4</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+</kw>
+<var name="${counter}">5</var>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-22T16:44:36.899374" level="INFO">All or Nothing</msg>
+<arg>${Games_List}[${counter}]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.001011"/>
+</kw>
+<var name="${counter}">6</var>
+<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.001011"/>
+</iter>
+<var>${counter}</var>
+<value>${Games_count}</value>
+<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.004012"/>
+</for>
+<status status="PASS" start="2025-04-22T16:44:36.881363" elapsed="0.018011"/>
+</kw>
+<kw name="Test Clean Up" owner="Common" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-04-22T16:44:36.900362" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-22T16:44:36.900362" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-22T16:44:36.880364" elapsed="0.020999"/>
+</test>
+<status status="PASS" start="2025-04-22T16:44:36.403327" elapsed="0.500037"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Wagering TC DDT">Wagering TC DDT</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-22T16:44:36.777380" level="ERROR">Error in file 'c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot' on line 6: Library '..\Libs\Home_Page.py' does not exist.</msg>
+<msg time="2025-04-22T16:44:36.788363" level="ERROR">Error in file 'c:\iLottery PlayInterface Portal\PD22\Resources\Common.robot' on line 3: Importing library '../Libs/Common_Base_Repo' failed: ModuleNotFoundError: No module named '.'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_debug_adapter
+  C:\iLottery PlayInterface Portal
+  c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src
+  c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_ls\vendored
+  C:\Python\Python312\python312.zip
+  C:\Python\Python312\DLLs
+  C:\Python\Python312\Lib
+  C:\Python\Python312
+  C:\Python\Python312\Lib\site-packages</msg>
+<msg time="2025-04-22T16:44:36.876363" level="ERROR">[ DataDriver ] Error in robot file:
+  File "c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot", line 0</msg>
+<msg time="2025-04-22T16:44:36.879364" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: FileNotFoundError: File attribute was empty. Tried to find c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.csv but file does not exist. If no file validation is required, set file_search_strategy=None.</msg>
+</errors>
+</robot>

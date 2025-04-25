@@ -1,0 +1,10 @@
+{
+  "Environment_details":
+ {
+    "browser":"Chrome",
+    "portal_url":"https://portal-q2.igtilotterycmdtest.com/en-us/home.html",
+    "controlurl":"https://control-rnd-lot-cmd-q2-northeurope.igtilotterycmdtest.com/",
+    "Control_user_name":"1",
+	"Control_password":"1"
+   }
+ }

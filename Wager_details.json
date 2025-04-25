@@ -1,0 +1,59 @@
+{
+  "wager_details": [
+  {
+    "Game_Name": "Euro Jackpot",
+    "No_Boards": 5,
+    "bet_type": "",
+    "draw_name": ""
+  },
+  {
+    "Game_Name": "Powerball",
+    "No_Boards": 2,
+    "bet_type": "",
+    "draw_name": ""
+  },
+  {
+    "Game_Name": "Mega Millions",
+    "No_Boards": 5,
+    "bet_type": "",
+    "draw_name": ""
+  },
+  {
+    "Game_Name": "Lotto",
+    "No_Boards": 3,
+    "bet_type": "",
+    "draw_name": ""
+  },
+  {
+    "Game_Name": "Pick 3",
+    "No_Boards": 1,
+    "bet_type": "STRAIGHT",
+    "draw_name": "EVENING"
+  },
+  {
+    "Game_Name": "Pick 4",
+    "No_Boards": 3,
+    "bet_type": "FRONT",
+    "draw_name": "MIDDAY"
+  },
+  {
+    "Game_Name": "All or Nothing",
+    "No_Boards": 1,
+    "bet_type": "",
+    "draw_name": "EVENING"
+  }
+],
+"wager_Page_paths":
+ {
+    "Draw_Games_path": "//a[text()='Draw Games'] | //a/span[contains(text(),'Draw Games')]",
+    "Buynow_path": "//button[text()='Buy Now'] | //button[contains(text(),'Buy Now')]",
+    "bet_type_path": "//select[@id='betType']",
+    "draw_names_path": "//select[@id='drawNames']",
+    "Confirm_purchase_path": "//a[text()='Confirm Purchase'] | //a[text()='Purchase']",
+    "Show_details_path": "//a[@data-pd='cartItemDetailsBtn']",
+    "Ceritify_purchase_path": "//input[@name='certify']",
+	"My_Activity_path":"//li/a[text()='My Activity']",
+	"Financial_History_path":"//a[@id='financial-activityLink']"
+
+ }
+}

@@ -1,0 +1,33 @@
+{
+  "Login_data":
+ {
+    "username":"maruthi156@igt.com",
+    "password":"Welcome1",
+    "invalid_user_name":"invalid@gamil.com",
+    "invalid_Password":"Welcome",
+	
+    "error_messages":
+        {
+        "message1":"Please enter a username",
+        "message2":"Please enter a password",
+		"message3":"This field is required.",
+		"message4":"Player not found."
+        }
+ },
+  "Login_path":
+ {
+   "username_path": "//input[@id='loginModal-username']",
+   "password_path": "id:loginModal-password",
+   "Loginbutton_path": "//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']",
+   "Signin_path": "//button[@id='loginButton'] | //button[@name='loginSubmit']",
+   "emailid_path": "id:email",
+   "Agree_TC_path": "//fieldset/div/label/label | //*[@id=\"formLogin\"]/div/small/fieldset/div/label",
+   "Error_Message_path": "//form[@id='formLogin']/*//div[@class='messagebar__msg in']/div/div",
+   
+   "Error_Message_Username_path": "id:loginModal-username-error",
+   "Error_Message_password_path": "id:loginModal-password-error",
+   "Error_Message_uncheck_TC_path": "id:loginModal-tandc-error",
+   "Agree_TC_Check_box_status_path": "//*[@id=\"tandc\"]/fieldset/div/label"
+ }
+
+ }
