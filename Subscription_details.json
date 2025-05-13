@@ -1,0 +1,69 @@
+{
+  "Subscription_details": [
+  {
+    "Game_Name": "Euro Jackpot",
+    "No_Boards": 2,
+    "bet_type": "",
+    "draw_name": "",
+	"No_draws":"5 draws"
+  },
+  {
+    "Game_Name": "Powerball",
+    "No_Boards": 2,
+    "bet_type": "",
+    "draw_name": "",
+	"No_draws":""
+  },
+  {
+    "Game_Name": "Mega Millions",
+    "No_Boards": 5,
+    "bet_type": "",
+    "draw_name": "",
+	"No_draws":"2 draws"
+  },
+  {
+    "Game_Name": "Lotto",
+    "No_Boards": 3,
+    "bet_type": "",
+    "draw_name": "",
+	"No_draws":""
+  },
+  {
+    "Game_Name": "Pick 3",
+    "No_Boards": 1,
+    "bet_type": "STRAIGHT",
+    "draw_name": "EVENING",
+	"No_draws":""
+  },
+  {
+    "Game_Name": "Pick 4",
+    "No_Boards": 3,
+    "bet_type": "FRONT",
+    "draw_name": "MIDDAY",
+	"No_draws":"10 draws"
+  },
+  {
+    "Game_Name": "All or Nothing",
+    "No_Boards": 1,
+    "bet_type": "",
+    "draw_name": "EVENING",
+	"No_draws":"4 draws"
+  }
+],
+"Subscription_Page_paths":
+ {
+    "player_menu_path": "//*[@id='accountBarDesktop']/*//a | //div[@class='account-nav__players-info ng-scope']/*//a",
+    "my_subscription_path": "//a[text()='My Subscriptions'] | //a[contains(text(),'My Subscriptions')]",
+    "create_subsription_path": "//a[text()='Create New Subscription'] | //a[contains(text(),'Create New Subscription')]",
+    "activate_subscription_path": "//button[@id='subscribeButton']",
+    "Ceritify_purchase_path": "//input[@name='certify']",
+	"save_subscription_path":"//a[@id='saving']",
+	"confirm_subscription_path":"//div[@class='modal-footer']/button[text()='Confirm']",
+	"No_Draws_location_path":"//select[@id='betslip-duration']",
+	"draw_names_path": "//select[@id='drawNames']",
+	
+	"confirm_button_path":"//div[@id='duplicateSubscriptionModal']/*//button[1]"
+	
+
+ }
+}

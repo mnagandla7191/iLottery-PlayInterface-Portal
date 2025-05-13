@@ -1,0 +1,55 @@
+{
+  
+  "Registration_data":[
+    {
+    "email":"Maruthiauto28@gmail.com",
+    "password":"Welcome1"
+    },
+    {
+    "email": "Maruthiauto29@gmail.com",
+    "password": "Welcome1"
+    },
+    {
+    "email": "Maruthiauto30@gmail.com",
+    "password": "Welcome1"
+    }
+  ],
+  "Registration_path_details": 
+    {
+      "Register_path": "//a[text()='Register']",
+      "Email_path": "//input[@id='email']",
+      "Password_path": "//input[@id='password']",
+      "secq_path": "//select[@id='securityquestion_0']",
+      "seca_path": "//input[@id='securityAnswer_0']",
+      "Agree_conti_path": "//button[@id='connectRegistrationFormSubmit']",
+      "closeX_verification_path": "//div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']",
+	  "Loginbutton_location_path": "//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']",
+      "Signin_Location_path": "//button[@id='loginButton'] | //button[@name='loginSubmit']",
+	  "username_Location_path": "id:loginModal-username",
+      "password_Location_path": "id:loginModal-password",
+      "Continue_pp_path": "//button[@id='playPreferencesModalContinueBtn']",
+      "Upgrade_path": "//a[text()='Upgrade']",
+      "FirstName_path": "//input[@id='firstname']",
+      "LastName_path": "//input[@id='lastname']",
+      "DOB_path": "//input[@id='dob']",
+      "Gender_path": "//select[@id='gender']",
+      "Address_path": "//input[@id='address1']",
+      "Town_path": "//input[@id='town']",
+      "Zip_path": "//input[@id='postcode']",
+      "State_path": "//select[@id='state']",
+      "SSN_path": "//input[@id='socialSecurityNumber']",
+      "Country_path": "//select[@id='country']",
+      "Mobileno_path": "//input[@id='mobile']",
+      "Consent_TR_path": "//input[@id='consent-1-check']/following-sibling::label",
+      "TC_path_old": "//input[@id='tandcs']/following-sibling::span",
+	  "TC_path": "//*[@id='regstep2form']/fieldset[4]/div/label",
+      "Reg_Upgrade_submit_path": "//button[@id='regUpgradeSubmit']",
+	  "Cancel_verify_pop_path": "//a[text()='Cancel']",
+	  "playPreferences_Continue_path": "//button[@id='playPreferencesModalContinueBtn']",
+	  "upgradePP_path": "//button[@id='upgradePrivacyPolicyModalAcceptBtn']",
+	  "OK_path": "//a[text()='Ok']"
+	  
+    }
+     
+}
+
