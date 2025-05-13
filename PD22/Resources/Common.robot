@@ -1,9 +1,9 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    ../Libs/Common_Base_Repo
 Library    OperatingSystem
 Library    JSONLibrary
 Library    String
+Library    ../Libs/Common_Base_Repo.py
 *** Variables ***
 ${browser}
 ${url}
@@ -39,8 +39,61 @@ BeforeSuite
     # ${url}    set variable       ${res[0][0]}
     # ${browser}    set variable       ${res[0][1]}
     Get environment details from Json file
+    Get Login details from json file
     open browser    ${url}    ${browser}
     Maximize Browser Window
+    Click on Login button    ${Loginbutton_location}
+    enter User Name    ${username_Location}    ${user_name}
+    enter Password    ${password_Location}    ${Password}
+    Select check box to accept terma and conditions    ${Check_box_status}
+    Click on Sign in Button    ${Signin_Location}   
+
+BeforeSuite for Registration
+    # [Arguments]    ${browser}    ${url}
+ 
+    # ${res}=    import_data_from_xlsx    ${environment}    ${xls_filename}
+    # ${url}    set variable       ${res[0][0]}
+    # ${browser}    set variable       ${res[0][1]}
+    Get environment details from Json file
+    Get Login details from json file
+    open browser    ${url}    ${browser}
+    Maximize Browser Window
+  
+    
+Get Login details from json file
+    ${Login_file}    Load JSON From file    Login_data.json
+
+    Log To Console    ${Login_file}
+    ${user_name}    Get Value From Json    ${Login_file}    Login_data.username
+    ${user_name}    set variable       ${user_name[0]} 
+    Log    ${user_name}
+    ${password}    Get Value From Json    ${Login_file}    Login_data.password
+    ${password}    set variable       ${password[0]}
+    Log    ${password}
+    ${username_Location}    Get Value From Json    ${Login_file}    $.Login_path.username_path
+    ${username_Location}    set variable       ${username_Location[0]} 
+    Log    ${username_Location}
+    ${password_Location}    Get Value From Json    ${Login_file}    $.Login_path.password_path
+    Log    ${password_Location}
+    ${password_Location}    set variable       ${password_Location[0]}
+
+    ${Loginbutton_location}    Get Value From Json    ${Login_file}    $.Login_path.Loginbutton_path
+    Log    ${Loginbutton_location}
+    ${Loginbutton_location}    set variable       ${Loginbutton_location[0]}
+
+    ${Signin_Location}    Get Value From Json    ${Login_file}    $.Login_path.Signin_path
+    Log    ${Signin_Location}
+    ${Signin_Location}    set variable       ${Signin_Location[0]}
+    ${Agree_TC_Check_box_status_Loc}    Get Value From Json    ${Login_file}    $.Login_path.Agree_TC_Check_box_status_path
+    Log    ${Agree_TC_Check_box_status_Loc}
+    ${Check_box_status}    set variable       ${Agree_TC_Check_box_status_Loc[0]}
+    Set Global Variable    ${user_name}
+    Set Global Variable    ${Password}
+    Set Global Variable    ${username_Location}
+    Set Global Variable    ${password_Location}
+    Set Global Variable    ${Loginbutton_location}
+    Set Global Variable    ${Signin_Location}
+    Set Global Variable    ${Check_box_status}
 
 Get environment details from Json file
     ${file}    Load JSON From file    Environment_details.json
@@ -79,6 +132,7 @@ Click Player Menu
     
 Get Total Balance
     Sleep                                    5
+    Wait Until Element Is Visible    //div[@id="accountBarDesktop"]//*/a[1]/span/span[3]    ${delay}
     ${totalAmount}=	                         Get Text	          //div[@id="accountBarDesktop"]//*/a[1]/span/span[3]
     ${totalAmount}=                          Remove String	      ${totalAmount}   ,    ,    $
     ${totalAmount}=                          Convert To Number    ${totalAmount}
@@ -109,6 +163,10 @@ Logout from application
     Wait Until Element Is Visible   //*[text()=' Logout']    ${delay}
     Click Element    //*[text()=' Logout']
     sleep    10 seconds
+
+
+Test Clean Up for accessibility
+    Run Keyword If Test Failed    Capture Page Screenshot
     
 
     

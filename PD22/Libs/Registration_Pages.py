@@ -123,6 +123,7 @@ class Registration_Pages(PageObject):
         print("reading is done")
         self.selib.click_element(self.locator.submit_btn)
         self.builtin.sleep(10)
+
     
         
     # def enter_full_registration_details_Next_Page(self,customer="KY"):
@@ -193,12 +194,12 @@ class Registration_Pages(PageObject):
     #         self.selib.click_element(self.locator.play_now_btn)
     #         self.builtin.sleep(10)
         
-    def generate_4_random_number():  
+    def generate_4_random_number(self):  
         num2 = random.randint(1000, 9999)
         print("Random integer: ", num2)
         return str(num2)    
     
-    def generate_10_random_number():  
+    def generate_10_random_number(self):  
         num2 = random.randint(1000000000, 9999999999)
         print("Random integer: ", num2)
         return str(num2)  
@@ -206,5 +207,5 @@ class Registration_Pages(PageObject):
     
     def scroll_down_in_page(self):
         self.selib.press_keys(None, "PAGE_DOWN")
-        self.selib.press_keys(None, "RETURN")       
+        # self.selib.press_keys(None, "RETURN")       
   

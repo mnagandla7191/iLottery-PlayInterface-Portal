@@ -105,6 +105,7 @@ class Wagering_Pages(PageObject):
         self.add_delete_boards(no_boards,game_name,flag,sub_flag)
         self.builtin.sleep(3)
         self.Click_on_Quick_pick_button(no_boards,game_name,flag,sub_flag)
+
     def Do_Manual_pick_by_selecting_No_of_Boards(self,no_boards,game_name,flag=0,sub_flag=0):
         game_name=self.convert_game_name_single_string(game_name)
         self.add_delete_boards(no_boards,game_name,flag,sub_flag)

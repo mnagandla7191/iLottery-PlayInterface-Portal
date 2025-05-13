@@ -2,13 +2,18 @@
 
 *** Settings ***
 Library    ../Libs/Common_Base_Repo.py
+Library    ../Libs/Registration_Pages.py
 Library    SeleniumLibrary
 Library    Collections
+Library    wagering_pages
 Resource    ../Resources/HomePage.robot
 Resource    ../Resources/Common.robot
 Resource    ../Resources/Control_Keywords.robot
+Resource    ../Resources/Login_Keywords.robot
+Resource    ../Resources/Favorites_Keywords.robot
+Resource    ../Resources/Wagering_Keywords.robot
 
-# Suite Setup   BeforeSuite    
+Suite Setup   BeforeSuite for Registration    
 # Suite Teardown  AfterSuite
 # Test Teardown    Test Clean Up 
 
@@ -27,7 +32,52 @@ ${password_Control}    1
 ${email_code_mail_path}    //tr[2]//button[@class='MuiButtonBase-root MuiButton-root MuiButton-contained tableActionButton MuiButton-containedPrimary MuiButton-containedSizeSmall MuiButton-sizeSmall MuiButton-disableElevation']
 ${verified_text_Loc}    //div[@id='verifiedContactModal']//h1
 ${expected_text}    Email Verified!
-*** Test Cases ***
+${i}    1
+*** Test Cases **
+Test Case for lite Registration
+    [TAGS]    Lite Registration
+    Get test data from json file    ${i}
+    Click on Register button    ${Register_Location}
+    Enter Email    ${Email_Location}    ${Email_data}
+    Enter Password    ${Password_Location}    ${Password_data}
+    Select value from secret question list    ${secq_Location}    What was the name of your first school teacher?
+    Enter Secret answer    ${seca_Location}    njj
+    Click on Agree and Continue button    ${Agree_conti_Location}
+    Sleep    5 seconds    
+    Click on Close popup    ${closeX_verification_Location}
+    Click on Login in Button    ${Loginbutton_location}
+    Enter Email    ${username_Location_L}    ${Email_data}
+    Enter Password    ${password_Location_L}    ${Password_data}
+    Click on Sign in Button    ${Signin_Location}
+    # Click on Cancel button    ${Cancel_verify_pop_Location}
+    # Enter User Name    ${username_Location_L}    ${Email_data}
+    # Enter User Password    ${password_Location_L}    ${Password_data}
+    # Click on Sign in Button    ${Signin_Location}
+    # Click on upgrade button    ${Upgrade_Location}
+    Click on playPreferences Continue button    ${playPreferences_Continue_Location}
+    Click on upgrade button    ${Upgrade_Location}
+    Click on Accept button in Privacy and Policy    ${upgradePP_Location}
+    Enter First Name    ${Firstname_Location}    Maruthi
+    Enter Last Name    ${LastName_Location}    Nagandla
+    Select value of gender    ${Gender_Location}    Male
+    Pick DOB from calender    ${DOB_Location}    Aug/12/1978  
+    Enter Address    ${Address_Location}    Houseno 94
+    Enter Town    ${Town_Location}    Sunnyvale
+    Enter Zipcode    ${Zip_Location}    52300
+    Select value of State    ${State_Location}    LA
+    ${SSN_No}    generate 4 random number
+    Enter SSN Number    ${SSN_Location}    ${SSN_No}
+    Select value from Country    ${Country_Location}    United States
+    ${Mobile_No}    generate 10 random number
+    Enter Mobile Number    ${Mobile_no_Location}    ${Mobile_No}
+    # Click on Tangable Rewards toggle button    Consent_TR_Location
+    # Click on Accept button    ${AcceptTR_Location}
+    scroll down in_page
+    scroll down in_page
+    Click on Terms and conditions check box    ${TC_Location}
+    Click on Submit button    ${Reg_Upgrade_submit_Location}
+    Click on OK button    ${OK_button_Location}    
+
 Test case for Full Registration with valid values
     [TAGS]    Full Registration    smoke    Regression
     Get Registarion data from excel
@@ -49,7 +99,7 @@ Test case for Full Registration with valid values
     Enter Address details    ${Address_loc}    ${Address}
     Enter City    ${Town_loc}    ${Town}
     Enter Zip Code    ${ZipCode_loc}    ${ZipCode}
-    Enter DOB   ${dob_date_loc}    ${dob_date}
+    Pick DOB from calender    ${dob_date_loc}    ${dob_date}
     Enter SSN Number    ${SSN_loc}    ${SSN}
 #   Select State    ${State_loc}    ${State}
     
@@ -106,10 +156,151 @@ Get verification code from Control
     # Click on Sign in for First time
 
 test to Switch Window
-    Open Browser with Portal url  ${browser_type}     ${url}
+    # Open Browser with Portal url  ${browser_type}     ${url}
+    Get test data from json file    ${i}
     
     
 *** Keywords ***
+
+***Keywords***    
+Get test data from json file
+    [Arguments]    ${i}
+    ${Registration_file}    Load JSON From file    Registration_data.json
+    ${Register_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Register_path
+    ${Register_Location}    set variable       ${Register_Location[0]} 
+    Log    ${Register_Location}
+    ${Email_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Email_path
+    ${Email_Location}    set variable       ${Email_Location[0]} 
+    Log    ${Email_Location}
+    ${Email_data}    Get Value From Json    ${Registration_file}    $.Registration_data[${i}].email
+    ${Email_data}    set variable       ${Email_data[0]} 
+    Log    ${Email_data}
+    ${Password_data}    Get Value From Json    ${Registration_file}    $.Registration_data[${i}].password
+    ${Password_data}    set variable       ${Password_data[0]} 
+    Log    ${Password_data}
+
+    ${Password_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Password_path
+    ${Password_Location}    set variable       ${Password_Location[0]} 
+    Log    ${Password_Location}
+    ${secq_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.secq_path
+    ${secq_Location}    set variable       ${secq_Location[0]} 
+    Log    ${secq_Location}
+    ${seca_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.seca_path
+    ${seca_Location}    set variable       ${seca_Location[0]} 
+    Log    ${seca_Location}
+
+    ${Agree_conti_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Agree_conti_path
+    ${Agree_conti_Location}    set variable       ${Agree_conti_Location[0]} 
+    Log    ${Agree_conti_Location}
+    ${closeX_verification_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.closeX_verification_path
+    ${closeX_verification_Location}    set variable       ${closeX_verification_Location[0]} 
+    Log    ${closeX_verification_Location}
+    ${Upgrade_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Upgrade_path
+    ${Upgrade_Location}    set variable       ${Upgrade_Location[0]} 
+    Log    ${Upgrade_Location}
+    ${FirstName_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.FirstName_path
+    ${FirstName_Location}    set variable       ${FirstName_Location[0]} 
+    Log    ${FirstName_Location}
+    ${LastName_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.LastName_path
+    ${LastName_Location}    set variable       ${LastName_Location[0]} 
+    Log    ${LastName_Location}
+    ${DOB_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.DOB_path
+    ${DOB_Location}    set variable       ${DOB_Location[0]} 
+    Log    ${DOB_Location}
+    ${Gender_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Gender_path
+    ${Gender_Location}    set variable       ${GenderLocation[0]} 
+    Log    ${Gender_Location}
+    ${Address_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Address_path
+    ${Address_Location}    set variable       ${Address_Location[0]} 
+    Log    ${Address_Location}
+    ${Town_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Town_path
+    ${Town_Location}    set variable       ${Town_Location[0]} 
+    Log    ${Town_Location}
+    ${Zip_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Zip_path
+    ${Zip_Location}    set variable       ${Zip_Location[0]} 
+    Log    ${Zip_Location}
+    ${State_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.State_path
+    ${State_Location}    set variable       ${State_Location[0]} 
+    Log    ${State_Location}
+    ${SSN_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.SSN_path
+    ${SSN_Location}    set variable       ${SSN_Location[0]} 
+    Log    ${SSN_Location}
+    ${Country_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Country_path
+    ${Country_Location}    set variable       ${Country_Location[0]} 
+    Log    ${Country_Location}
+    ${Mobile_no_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Mobileno_path
+    ${Mobile_no_Location}    set variable       ${Mobile_no_Location[0]} 
+    Log    ${Mobile_no_Location}
+    ${Consent_TR_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Consent_TR_path
+    ${Consent_TR_Location}    set variable       ${Consent_TR_Location[0]} 
+    Log    ${Consent_TR_Location}
+    ${TC_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.TC_path
+    ${TC_Location}    set variable       ${TC_Location[0]} 
+    Log    ${TC_Location}
+    ${Reg_Upgrade_submit_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Reg_Upgrade_submit_path
+    ${Reg_Upgrade_submit_Location}    set variable       ${Reg_Upgrade_submit_Location[0]}    
+    Log    ${Reg_Upgrade_submit_Location}
+    ${Loginbutton_location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Loginbutton_location_path
+    ${Loginbutton_location}    set variable       ${Loginbutton_location[0]}    
+    Log    ${Loginbutton_location}
+    ${username_Location_L}    Get Value From Json    ${Registration_file}    $.Registration_path_details.username_Location_path
+    ${username_Location_L}    set variable       ${username_Location_L[0]}    
+    Log    ${username_Location_L}
+    ${password_Location_L}    Get Value From Json    ${Registration_file}    $.Registration_path_details.password_Location_path
+    ${password_Location_L}    set variable       ${password_Location_L[0]}    
+    Log    ${password_Location_L}
+    ${Signin_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Signin_Location_path
+    ${Signin_Location}    set variable       ${Signin_Location[0]}    
+    Log    ${Signin_Location}
+    ${Cancel_verify_pop_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.Cancel_verify_pop_path
+    ${Cancel_verify_pop_Location}    set variable       ${Cancel_verify_pop_Location[0]}    
+    Log    ${Cancel_verify_pop_Location}
+    
+    ${playPreferences_Continue_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.playPreferences_Continue_path
+    ${playPreferences_Continue_Location}    set variable       ${playPreferences_Continue_Location[0]}   
+    Log    ${playPreferences_Continue_Location}
+    ${upgradePP_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.upgradePP_path
+    ${upgradePP_Location}    set variable       ${upgradePP_Location[0]}   
+    Log    ${upgradePP_Location}
+    ${OK_button_Location}    Get Value From Json    ${Registration_file}    $.Registration_path_details.OK_path
+    ${OK_button_Location}    set variable       ${OK_button_Location[0]}   
+    Log    ${OK_button_Location}
+    
+    
+
+    Set Global Variable    ${Register_Location}
+    Set Global Variable    ${Email_Location}
+    Set Global Variable    ${Password_Location}
+    Set Global Variable    ${Email_data}
+    Set Global Variable    ${Password_data}
+    Set Global Variable    ${secq_Location}
+    Set Global Variable    ${seca_Location}
+    Set Global Variable    ${Agree_conti_Location}
+    Set Global Variable    ${closeX_verification_Location}
+    Set Global Variable    ${Loginbutton_location}
+    Set Global Variable    ${username_Location_L}
+    Set Global Variable    ${password_Location_L}
+    Set Global Variable    ${Signin_Location}
+    Set Global Variable    ${Upgrade_Location}
+    Set Global Variable    ${Cancel_verify_pop_Location}
+    Set Global Variable    ${playPreferences_Continue_Location}
+    Set Global Variable    ${upgradePP_Location}
+
+    Set Global Variable    ${FirstName_Location}
+    Set Global Variable    ${LastName_Location}
+    Set Global Variable    ${DOB_Location}
+    Set Global Variable    ${Address_Location}
+    Set Global Variable    ${Town_Location}
+    Set Global Variable    ${Zip_Location}
+    Set Global Variable    ${State_Location}
+    Set Global Variable    ${SSN_Location}
+    Set Global Variable    ${Country_Location}
+    Set Global Variable    ${Mobile_no_Location}
+    Set Global Variable    ${Consent_TR_Location}
+    Set Global Variable    ${TC_Location}
+    Set Global Variable    ${Reg_Upgrade_submit_Location}    
+    Set Global Variable    ${Gender_Location}
+    Set Global Variable    ${OK_button_Location}
 Get Registarion paths from excel
 
     ${reg_paths}=    import data from xlsx    ${Sheet_Registration_Paths}    ${xlsx_filename}

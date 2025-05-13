@@ -99,7 +99,7 @@ Test case to verify functionality of Login with valid credentials
     Clear password field    ${password_Location}
     enter User Name    ${username_Location}    ${user_name}
     enter Password    ${password_Location}    ${Password}
-    Agree Terms and Conditions check box    ${Check_box_status}
+    Select check box and Agree Terms and Conditions    ${Check_box_status}
     Click on Sign in Button    ${Signin_Location}
 
 *** Keywords ***

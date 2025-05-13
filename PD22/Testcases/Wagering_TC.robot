@@ -7,10 +7,7 @@ Library    ../Libs/Home_Page.py
 Library    ../Libs/Wagering_Pages.py
 Library    ../Libs/My_Activity_Pages.py
 Resource    ../Resources/Common.robot
-# Resource    ../Resources/Login_Keywords.robot
-# Resource    ../Resources/Wagering_Keywords.robot
 Resource    ../Resources/My_Activity_Keywords.robot
-# Library    ../libs/Common_Base_Repository.py
 Test Teardown    Test Clean Up
 Suite Setup   BeforeSuite
 # Suite Teardown  AfterSuite
@@ -20,12 +17,9 @@ ${url}    https://kyssit2.igtilotterycmdtest.com/en-us/home.html
 ${Email}    maruthi155@igt.com    
 ${password}    Welcome1
 # ${delay}    50 seconds
-${Sheet_Name}    Wagering
-${xls_filename}    datafile_Portal_latest.xlsx
-${environment}    Environment_details
 ${flag}
 ${customer_key}    QA
-${i}    4
+${i}    2
 *** Test Cases ***
 testcase for Wagering with Quickpick
     [TAGS]    Wagering
@@ -41,7 +35,7 @@ testcase for Wagering with Quickpick
     # ${totalLoyalty}=     Get Total Loyalty
     # Log    LoyaltyBalance=${totalLoyalty}
     Click on Draw Games    ${Draw_Games_location}
-    Select Game from the List    ${Game_Name}    ${bet_type}    ${draw_name}
+    Select Game from the list    ${Game_Name}    ${bet_type}    ${draw_name}
 
     Do Quick Pick by Selecting No of Boards    ${No_Boards}    ${Game_Name}
     # Do Manual pick by selecting No of Boards     ${No_Boards}    ${Game_Name}

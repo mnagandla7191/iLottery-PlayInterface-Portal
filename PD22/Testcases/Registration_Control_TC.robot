@@ -2,7 +2,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library     Collections
-Library    ../Libs/Common_base.py
 Library    ../Control_Pages.py
 Resource   ../Resources/Common.robot
 Resource   ../Resources/Control_Keywords.robot

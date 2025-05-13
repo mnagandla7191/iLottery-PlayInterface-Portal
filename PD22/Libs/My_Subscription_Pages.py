@@ -43,7 +43,10 @@ class My_Subscription_Pages(PageObject):
         self.selib.click_element(xpath)
         self.builtin.sleep(2)
 
-
-
-            
+    def Click_Confirm_button_for_duplicate_subscriptions(self):
+        xpath="//div[@id='duplicateSubscriptionModal']"
+        if len(self.selib.get_webelements(xpath))>0:
+            xpath="//div[@id='duplicateSubscriptionModal']/*//button[@class='btn btn-primary confirm-activate']"
+            self.selib.click_element(xpath)
+            self.builtin.sleep(2)        
     

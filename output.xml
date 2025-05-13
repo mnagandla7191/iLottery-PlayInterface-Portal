@@ -1,144 +1,1456 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2025-04-22T16:44:36.397330" rpa="false" schemaversion="5">
-<suite id="s1" name="Wagering TC DDT" source="c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot">
-<test id="s1-t1" name="Test case to get the length" line="149">
-<kw name="Get count of games from json file">
+<robot generator="Robot 7.0.1 (Python 3.12.3 on win32)" generated="2025-05-09T21:27:07.575169" rpa="false" schemaversion="5">
+<suite id="s1" name="Registration" source="c:\automation-interactive-portal\PD22\Testcases\Registration.robot">
+<kw name="BeforeSuite for Registration" owner="Common" type="SETUP">
+<kw name="Get environment details from Json file" owner="Common">
 <kw name="Load Json From File" owner="JSONLibrary">
-<msg time="2025-04-22T16:44:36.882363" level="INFO">${Wager_details_file} = {'wager_details': [{'Game_Name': 'Euro Jackpot', 'No_Boards': 5, 'bet_type': '', 'draw_name': ''}, {'Game_Name': 'Powerball', 'No_Boards': 2, 'bet_type': '', 'draw_name': ''}, {'Game_Name': 'Mega Mill...</msg>
-<var>${Wager_details_file}</var>
-<arg>Wager_details.json</arg>
+<msg time="2025-05-09T21:27:08.169763" level="INFO">${file} = {'Environment_details': {'browser': 'Chrome', 'portal_url': 'https://portal-demo.igtilotterycmdtest.com/en-us/home.html', 'controlurl': 'https://control-rnd-lot-cmd-q2-northeurope.igtilotterycmdtest.c...</msg>
+<var>${file}</var>
+<arg>Environment_details.json</arg>
 <doc>Load JSON from file.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.881363" elapsed="0.001999"/>
+<status status="PASS" start="2025-05-09T21:27:08.168765" elapsed="0.001997"/>
 </kw>
 <kw name="Get Value From Json" owner="JSONLibrary">
-<msg time="2025-04-22T16:44:36.894373" level="INFO">${Games_List} = ['Euro Jackpot', 'Powerball', 'Mega Millions', 'Lotto', 'Pick 3', 'Pick 4', 'All or Nothing']</msg>
-<var>${Games_List}</var>
-<arg>${Wager_details_file}</arg>
-<arg>$..Game_Name</arg>
+<msg time="2025-05-09T21:27:08.187764" level="INFO">${browser} = ['Chrome']</msg>
+<var>${browser}</var>
+<arg>${file}</arg>
+<arg>Environment_details.browser</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<status status="PASS" start="2025-04-22T16:44:36.883362" elapsed="0.011011"/>
+<status status="PASS" start="2025-05-09T21:27:08.170762" elapsed="0.018004"/>
 </kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.895362" level="INFO">Length is 7.</msg>
-<msg time="2025-04-22T16:44:36.895362" level="INFO">${Games_count} = 7</msg>
-<var>${Games_count}</var>
-<arg>${Games_List}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.000000"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.189768" level="INFO">${browser} = Chrome</msg>
+<var>${browser}</var>
+<arg>${browser[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.188766" elapsed="0.001002"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.895362" level="INFO">7</msg>
-<arg>${Games_count}</arg>
+<msg time="2025-05-09T21:27:08.189768" level="INFO">Chrome</msg>
+<arg>${browser}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-09T21:27:08.189768" elapsed="0.000000"/>
 </kw>
-<for flavor="IN RANGE">
-<iter>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.203765" level="INFO">${url} = ['https://portal-demo.igtilotterycmdtest.com/en-us/home.html']</msg>
+<var>${url}</var>
+<arg>${file}</arg>
+<arg>Environment_details.portal_url</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.190766" elapsed="0.012999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.204766" level="INFO">${url} = https://portal-demo.igtilotterycmdtest.com/en-us/home.html</msg>
+<var>${url}</var>
+<arg>${url[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.203765" elapsed="0.001001"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.896363" level="INFO">Euro Jackpot</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.204766" level="INFO">https://portal-demo.igtilotterycmdtest.com/en-us/home.html</msg>
+<arg>${url}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-09T21:27:08.204766" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">0</var>
-<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.000000"/>
-</iter>
-<iter>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.205764" level="INFO">${browser} = Chrome</msg>
+<arg>${browser}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.205764" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.205764" level="INFO">${url} = https://portal-demo.igtilotterycmdtest.com/en-us/home.html</msg>
+<arg>${url}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.205764" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-09T21:27:08.168765" elapsed="0.036999"/>
+</kw>
+<kw name="Get Login details from json file" owner="Common">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.207765" level="INFO">${Login_file} = {'Login_data': {'username': 'maruthiauto25@gmail.com', 'password': 'Welcome1', 'invalid_user_name': 'invalid@gamil.com', 'invalid_Password': 'Welcome', 'error_messages': {'message1': 'Please enter a u...</msg>
+<var>${Login_file}</var>
+<arg>Login_data.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.206770" elapsed="0.000995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${Login_file}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.207765" elapsed="0.000999"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.218763" level="INFO">${user_name} = ['maruthiauto25@gmail.com']</msg>
+<var>${user_name}</var>
+<arg>${Login_file}</arg>
+<arg>Login_data.username</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.208764" elapsed="0.009999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.220764" level="INFO">${user_name} = maruthiauto25@gmail.com</msg>
+<var>${user_name}</var>
+<arg>${user_name[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.219763" elapsed="0.001001"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.897363" level="INFO">Powerball</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.220764" level="INFO">maruthiauto25@gmail.com</msg>
+<arg>${user_name}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.001000"/>
+<status status="PASS" start="2025-05-09T21:27:08.220764" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">1</var>
-<status status="PASS" start="2025-04-22T16:44:36.896363" elapsed="0.001000"/>
-</iter>
-<iter>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.230764" level="INFO">${password} = ['Welcome1']</msg>
+<var>${password}</var>
+<arg>${Login_file}</arg>
+<arg>Login_data.password</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.220764" elapsed="0.010999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.232764" level="INFO">${password} = Welcome1</msg>
+<var>${password}</var>
+<arg>${password[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.231763" elapsed="0.001001"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.897363" level="INFO">Mega Millions</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.232764" level="INFO">Welcome1</msg>
+<arg>${password}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-09T21:27:08.232764" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">2</var>
-<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.000000"/>
-</iter>
-<iter>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.242765" level="INFO">${username_Location} = ["//input[@id='loginModal-username']"]</msg>
+<var>${username_Location}</var>
+<arg>${Login_file}</arg>
+<arg>$.Login_path.username_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.232764" elapsed="0.010001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.243763" level="INFO">${username_Location} = //input[@id='loginModal-username']</msg>
+<var>${username_Location}</var>
+<arg>${username_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.242765" elapsed="0.000998"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.897363" level="INFO">Lotto</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.243763" level="INFO">//input[@id='loginModal-username']</msg>
+<arg>${username_Location}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.001000"/>
+<status status="PASS" start="2025-05-09T21:27:08.243763" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">3</var>
-<status status="PASS" start="2025-04-22T16:44:36.897363" elapsed="0.001000"/>
-</iter>
-<iter>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.253778" level="INFO">${password_Location} = ['id:loginModal-password']</msg>
+<var>${password_Location}</var>
+<arg>${Login_file}</arg>
+<arg>$.Login_path.password_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.243763" elapsed="0.010015"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.898363" level="INFO">Pick 3</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.253778" level="INFO">['id:loginModal-password']</msg>
+<arg>${password_Location}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-09T21:27:08.253778" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">4</var>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
-</iter>
-<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.254764" level="INFO">${password_Location} = id:loginModal-password</msg>
+<var>${password_Location}</var>
+<arg>${password_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.254764" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.264797" level="INFO">${Loginbutton_location} = ["//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']"]</msg>
+<var>${Loginbutton_location}</var>
+<arg>${Login_file}</arg>
+<arg>$.Login_path.Loginbutton_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.254764" elapsed="0.010033"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.898363" level="INFO">Pick 4</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.264797" level="INFO">["//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']"]</msg>
+<arg>${Loginbutton_location}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
+<status status="PASS" start="2025-05-09T21:27:08.264797" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">5</var>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.000000"/>
-</iter>
-<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.265764" level="INFO">${Loginbutton_location} = //button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']</msg>
+<var>${Loginbutton_location}</var>
+<arg>${Loginbutton_location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.265764" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.274778" level="INFO">${Signin_Location} = ["//button[@id='loginButton'] | //button[@name='loginSubmit']"]</msg>
+<var>${Signin_Location}</var>
+<arg>${Login_file}</arg>
+<arg>$.Login_path.Signin_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.265764" elapsed="0.009014"/>
+</kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-04-22T16:44:36.899374" level="INFO">All or Nothing</msg>
-<arg>${Games_List}[${counter}]</arg>
+<msg time="2025-05-09T21:27:08.275764" level="INFO">["//button[@id='loginButton'] | //button[@name='loginSubmit']"]</msg>
+<arg>${Signin_Location}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.001011"/>
+<status status="PASS" start="2025-05-09T21:27:08.275764" elapsed="0.000000"/>
 </kw>
-<var name="${counter}">6</var>
-<status status="PASS" start="2025-04-22T16:44:36.898363" elapsed="0.001011"/>
-</iter>
-<var>${counter}</var>
-<value>${Games_count}</value>
-<status status="PASS" start="2025-04-22T16:44:36.895362" elapsed="0.004012"/>
-</for>
-<status status="PASS" start="2025-04-22T16:44:36.881363" elapsed="0.018011"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.276780" level="INFO">${Signin_Location} = //button[@id='loginButton'] | //button[@name='loginSubmit']</msg>
+<var>${Signin_Location}</var>
+<arg>${Signin_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.275764" elapsed="0.001016"/>
 </kw>
-<kw name="Test Clean Up" owner="Common" type="TEARDOWN">
-<kw name="Run Keyword If Test Failed" owner="BuiltIn">
-<arg>Capture Page Screenshot</arg>
-<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" start="2025-04-22T16:44:36.900362" elapsed="0.000000"/>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:08.285777" level="INFO">${Agree_TC_Check_box_status_Loc} = ['//*[@id="tandc"]/fieldset/div/label']</msg>
+<var>${Agree_TC_Check_box_status_Loc}</var>
+<arg>${Login_file}</arg>
+<arg>$.Login_path.Agree_TC_Check_box_status_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:08.276780" elapsed="0.008997"/>
 </kw>
-<status status="PASS" start="2025-04-22T16:44:36.900362" elapsed="0.000000"/>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.286775" level="INFO">['//*[@id="tandc"]/fieldset/div/label']</msg>
+<arg>${Agree_TC_Check_box_status_Loc}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.286775" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-04-22T16:44:36.880364" elapsed="0.020999"/>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.287762" level="INFO">${Check_box_status} = //*[@id="tandc"]/fieldset/div/label</msg>
+<var>${Check_box_status}</var>
+<arg>${Agree_TC_Check_box_status_Loc[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.286775" elapsed="0.000987"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.287762" level="INFO">${user_name} = maruthiauto25@gmail.com</msg>
+<arg>${user_name}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.287762" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.287762" level="INFO">${Password} = Welcome1</msg>
+<arg>${Password}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.287762" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.288778" level="INFO">${username_Location} = //input[@id='loginModal-username']</msg>
+<arg>${username_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.287762" elapsed="0.001016"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.288778" level="INFO">${password_Location} = id:loginModal-password</msg>
+<arg>${password_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.288778" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.288778" level="INFO">${Loginbutton_location} = //button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']</msg>
+<arg>${Loginbutton_location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.288778" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.289777" level="INFO">${Signin_Location} = //button[@id='loginButton'] | //button[@name='loginSubmit']</msg>
+<arg>${Signin_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.288778" elapsed="0.000999"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:08.289777" level="INFO">${Check_box_status} = //*[@id="tandc"]/fieldset/div/label</msg>
+<arg>${Check_box_status}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.289777" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-05-09T21:27:08.205764" elapsed="0.084013"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-09T21:27:08.289777" level="INFO">Opening browser 'Chrome' to base url 'https://portal-demo.igtilotterycmdtest.com/en-us/home.html'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-09T21:27:08.289777" elapsed="12.433470"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.723247" elapsed="0.039658"/>
+</kw>
+<status status="PASS" start="2025-05-09T21:27:08.167762" elapsed="12.595143"/>
+</kw>
+<test id="s1-t1" name="Test Case for lite Registration" line="37">
+<kw name="Get test data from json file">
+<kw name="Load Json From File" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.767906" level="INFO">${Registration_file} = {'Registration_data': [{'email': 'Maruthiauto28@gmail.com', 'password': 'Welcome1'}, {'email': 'Maruthiauto29@gmail.com', 'password': 'Welcome1'}, {'email': 'Maruthiauto30@gmail.com', 'password': 'Wel...</msg>
+<var>${Registration_file}</var>
+<arg>Registration_data.json</arg>
+<doc>Load JSON from file.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.765909" elapsed="0.001997"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.780910" level="INFO">${Register_Location} = ["//a[text()='Register']"]</msg>
+<var>${Register_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Register_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.768907" elapsed="0.012003"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.782911" level="INFO">${Register_Location} = //a[text()='Register']</msg>
+<var>${Register_Location}</var>
+<arg>${Register_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.781908" elapsed="0.001003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.783909" level="INFO">//a[text()='Register']</msg>
+<arg>${Register_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.783909" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.794924" level="INFO">${Email_Location} = ["//input[@id='email']"]</msg>
+<var>${Email_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Email_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.783909" elapsed="0.011015"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.795908" level="INFO">${Email_Location} = //input[@id='email']</msg>
+<var>${Email_Location}</var>
+<arg>${Email_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.794924" elapsed="0.000984"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.795908" level="INFO">//input[@id='email']</msg>
+<arg>${Email_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.795908" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.805933" level="INFO">${Email_data} = ['Maruthiauto29@gmail.com']</msg>
+<var>${Email_data}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_data[${i}].email</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.795908" elapsed="0.010025"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.806906" level="INFO">${Email_data} = Maruthiauto29@gmail.com</msg>
+<var>${Email_data}</var>
+<arg>${Email_data[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.806906" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.807906" level="INFO">Maruthiauto29@gmail.com</msg>
+<arg>${Email_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.806906" elapsed="0.001000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.824911" level="INFO">${Password_data} = ['Welcome1']</msg>
+<var>${Password_data}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_data[${i}].password</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.807906" elapsed="0.018007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.827948" level="INFO">${Password_data} = Welcome1</msg>
+<var>${Password_data}</var>
+<arg>${Password_data[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.825913" elapsed="0.003086"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.828999" level="INFO">Welcome1</msg>
+<arg>${Password_data}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.828999" elapsed="0.000911"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.848911" level="INFO">${Password_Location} = ["//input[@id='password']"]</msg>
+<var>${Password_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Password_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.829910" elapsed="0.019001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.850907" level="INFO">${Password_Location} = //input[@id='password']</msg>
+<var>${Password_Location}</var>
+<arg>${Password_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.848911" elapsed="0.001996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.850907" level="INFO">//input[@id='password']</msg>
+<arg>${Password_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.850907" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.864906" level="INFO">${secq_Location} = ["//select[@id='securityquestion_0']"]</msg>
+<var>${secq_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.secq_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.850907" elapsed="0.013999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.865990" level="INFO">${secq_Location} = //select[@id='securityquestion_0']</msg>
+<var>${secq_Location}</var>
+<arg>${secq_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.864906" elapsed="0.001084"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.866992" level="INFO">//select[@id='securityquestion_0']</msg>
+<arg>${secq_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.865990" elapsed="0.001002"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.930041" level="INFO">${seca_Location} = ["//input[@id='securityAnswer_0']"]</msg>
+<var>${seca_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.seca_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.866992" elapsed="0.063049"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.931912" level="INFO">${seca_Location} = //input[@id='securityAnswer_0']</msg>
+<var>${seca_Location}</var>
+<arg>${seca_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.931024" elapsed="0.001881"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.932905" level="INFO">//input[@id='securityAnswer_0']</msg>
+<arg>${seca_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.932905" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.942921" level="INFO">${Agree_conti_Location} = ["//button[@id='connectRegistrationFormSubmit']"]</msg>
+<var>${Agree_conti_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Agree_conti_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.932905" elapsed="0.010016"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.943905" level="INFO">${Agree_conti_Location} = //button[@id='connectRegistrationFormSubmit']</msg>
+<var>${Agree_conti_Location}</var>
+<arg>${Agree_conti_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.943905" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.944921" level="INFO">//button[@id='connectRegistrationFormSubmit']</msg>
+<arg>${Agree_conti_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.944921" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.955921" level="INFO">${closeX_verification_Location} = ["//div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']"]</msg>
+<var>${closeX_verification_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.closeX_verification_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.944921" elapsed="0.011000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.956907" level="INFO">${closeX_verification_Location} = //div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']</msg>
+<var>${closeX_verification_Location}</var>
+<arg>${closeX_verification_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.955921" elapsed="0.000986"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.956907" level="INFO">//div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']</msg>
+<arg>${closeX_verification_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.956907" elapsed="0.001017"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.967912" level="INFO">${Upgrade_Location} = ["//a[text()='Upgrade']"]</msg>
+<var>${Upgrade_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Upgrade_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.957924" elapsed="0.009988"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.968910" level="INFO">${Upgrade_Location} = //a[text()='Upgrade']</msg>
+<var>${Upgrade_Location}</var>
+<arg>${Upgrade_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.967912" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.968910" level="INFO">//a[text()='Upgrade']</msg>
+<arg>${Upgrade_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.968910" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.977920" level="INFO">${FirstName_Location} = ["//input[@id='firstname']"]</msg>
+<var>${FirstName_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.FirstName_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.969921" elapsed="0.009044"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.978965" level="INFO">${FirstName_Location} = //input[@id='firstname']</msg>
+<var>${FirstName_Location}</var>
+<arg>${FirstName_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.978965" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.980038" level="INFO">//input[@id='firstname']</msg>
+<arg>${FirstName_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.978965" elapsed="0.001073"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:20.989921" level="INFO">${LastName_Location} = ["//input[@id='lastname']"]</msg>
+<var>${LastName_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.LastName_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.980038" elapsed="0.009883"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.991915" level="INFO">${LastName_Location} = //input[@id='lastname']</msg>
+<var>${LastName_Location}</var>
+<arg>${LastName_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.989921" elapsed="0.002989"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:20.992910" level="INFO">//input[@id='lastname']</msg>
+<arg>${LastName_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:20.992910" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.003910" level="INFO">${DOB_Location} = ["//input[@id='dob']"]</msg>
+<var>${DOB_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.DOB_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:20.993935" elapsed="0.009975"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.004931" level="INFO">${DOB_Location} = //input[@id='dob']</msg>
+<var>${DOB_Location}</var>
+<arg>${DOB_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.004931" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.005927" level="INFO">//input[@id='dob']</msg>
+<arg>${DOB_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.004931" elapsed="0.000996"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.014909" level="INFO">${Gender_Location} = ["//select[@id='gender']"]</msg>
+<var>${Gender_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Gender_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.005927" elapsed="0.008982"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.015908" level="INFO">${Gender_Location} = //select[@id='gender']</msg>
+<var>${Gender_Location}</var>
+<arg>${GenderLocation[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.015908" elapsed="0.000999"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.016907" level="INFO">//select[@id='gender']</msg>
+<arg>${Gender_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.016907" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.025922" level="INFO">${Address_Location} = ["//input[@id='address1']"]</msg>
+<var>${Address_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Address_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.016907" elapsed="0.009015"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.026906" level="INFO">${Address_Location} = //input[@id='address1']</msg>
+<var>${Address_Location}</var>
+<arg>${Address_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.025922" elapsed="0.000984"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.026906" level="INFO">//input[@id='address1']</msg>
+<arg>${Address_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.026906" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.037921" level="INFO">${Town_Location} = ["//input[@id='town']"]</msg>
+<var>${Town_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Town_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.027921" elapsed="0.010000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.038908" level="INFO">${Town_Location} = //input[@id='town']</msg>
+<var>${Town_Location}</var>
+<arg>${Town_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.037921" elapsed="0.000987"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.038908" level="INFO">//input[@id='town']</msg>
+<arg>${Town_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.038908" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.048915" level="INFO">${Zip_Location} = ["//input[@id='postcode']"]</msg>
+<var>${Zip_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Zip_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.038908" elapsed="0.011000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.050909" level="INFO">${Zip_Location} = //input[@id='postcode']</msg>
+<var>${Zip_Location}</var>
+<arg>${Zip_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.049908" elapsed="0.001001"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.051909" level="INFO">//input[@id='postcode']</msg>
+<arg>${Zip_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.051909" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.060952" level="INFO">${State_Location} = ["//select[@id='state']"]</msg>
+<var>${State_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.State_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.051909" elapsed="0.009043"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.061946" level="INFO">${State_Location} = //select[@id='state']</msg>
+<var>${State_Location}</var>
+<arg>${State_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.061946" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.063004" level="INFO">//select[@id='state']</msg>
+<arg>${State_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.061946" elapsed="0.001058"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.073011" level="INFO">${SSN_Location} = ["//input[@id='socialSecurityNumber']"]</msg>
+<var>${SSN_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.SSN_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.063004" elapsed="0.010007"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.073936" level="INFO">${SSN_Location} = //input[@id='socialSecurityNumber']</msg>
+<var>${SSN_Location}</var>
+<arg>${SSN_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.073011" elapsed="0.000925"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.073936" level="INFO">//input[@id='socialSecurityNumber']</msg>
+<arg>${SSN_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.073936" elapsed="0.001073"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.084010" level="INFO">${Country_Location} = ["//select[@id='country']"]</msg>
+<var>${Country_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Country_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.075009" elapsed="0.009001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.084940" level="INFO">${Country_Location} = //select[@id='country']</msg>
+<var>${Country_Location}</var>
+<arg>${Country_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.084010" elapsed="0.000930"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.084940" level="INFO">//select[@id='country']</msg>
+<arg>${Country_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.084940" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.094006" level="INFO">${Mobile_no_Location} = ["//input[@id='mobile']"]</msg>
+<var>${Mobile_no_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Mobileno_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.086005" elapsed="0.009003"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.095008" level="INFO">${Mobile_no_Location} = //input[@id='mobile']</msg>
+<var>${Mobile_no_Location}</var>
+<arg>${Mobile_no_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.095008" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.095956" level="INFO">//input[@id='mobile']</msg>
+<arg>${Mobile_no_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.095956" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.105001" level="INFO">${Consent_TR_Location} = ["//input[@id='consent-1-check']/following-sibling::label"]</msg>
+<var>${Consent_TR_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Consent_TR_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.095956" elapsed="0.010053"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.106968" level="INFO">${Consent_TR_Location} = //input[@id='consent-1-check']/following-sibling::label</msg>
+<var>${Consent_TR_Location}</var>
+<arg>${Consent_TR_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.106009" elapsed="0.000959"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.106968" level="INFO">//input[@id='consent-1-check']/following-sibling::label</msg>
+<arg>${Consent_TR_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.106968" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.116909" level="INFO">${TC_Location} = ["//*[@id='regstep2form']/fieldset[4]/div/label"]</msg>
+<var>${TC_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.TC_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.106968" elapsed="0.009941"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.117936" level="INFO">${TC_Location} = //*[@id='regstep2form']/fieldset[4]/div/label</msg>
+<var>${TC_Location}</var>
+<arg>${TC_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.116909" elapsed="0.001027"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.117936" level="INFO">//*[@id='regstep2form']/fieldset[4]/div/label</msg>
+<arg>${TC_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.117936" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.127013" level="INFO">${Reg_Upgrade_submit_Location} = ["//button[@id='regUpgradeSubmit']"]</msg>
+<var>${Reg_Upgrade_submit_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Reg_Upgrade_submit_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.117936" elapsed="0.009077"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.127965" level="INFO">${Reg_Upgrade_submit_Location} = //button[@id='regUpgradeSubmit']</msg>
+<var>${Reg_Upgrade_submit_Location}</var>
+<arg>${Reg_Upgrade_submit_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.127965" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.128936" level="INFO">//button[@id='regUpgradeSubmit']</msg>
+<arg>${Reg_Upgrade_submit_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.128936" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.138006" level="INFO">${Loginbutton_location} = ["//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']"]</msg>
+<var>${Loginbutton_location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Loginbutton_location_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.128936" elapsed="0.010069"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.139005" level="INFO">${Loginbutton_location} = //button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']</msg>
+<var>${Loginbutton_location}</var>
+<arg>${Loginbutton_location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.139005" elapsed="0.000935"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.139940" level="INFO">//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']</msg>
+<arg>${Loginbutton_location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.139940" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.149007" level="INFO">${username_Location_L} = ['id:loginModal-username']</msg>
+<var>${username_Location_L}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.username_Location_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.139940" elapsed="0.009998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.150941" level="INFO">${username_Location_L} = id:loginModal-username</msg>
+<var>${username_Location_L}</var>
+<arg>${username_Location_L[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.149938" elapsed="0.001003"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.150941" level="INFO">id:loginModal-username</msg>
+<arg>${username_Location_L}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.150941" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.164910" level="INFO">${password_Location_L} = ['id:loginModal-password']</msg>
+<var>${password_Location_L}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.password_Location_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.151909" elapsed="0.013001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.167997" level="INFO">${password_Location_L} = id:loginModal-password</msg>
+<var>${password_Location_L}</var>
+<arg>${password_Location_L[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.165911" elapsed="0.003104"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.169015" level="INFO">id:loginModal-password</msg>
+<arg>${password_Location_L}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.169015" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.185909" level="INFO">${Signin_Location} = ["//button[@id='loginButton'] | //button[@name='loginSubmit']"]</msg>
+<var>${Signin_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Signin_Location_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.170013" elapsed="0.015896"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.187907" level="INFO">${Signin_Location} = //button[@id='loginButton'] | //button[@name='loginSubmit']</msg>
+<var>${Signin_Location}</var>
+<arg>${Signin_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.186910" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.188909" level="INFO">//button[@id='loginButton'] | //button[@name='loginSubmit']</msg>
+<arg>${Signin_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.188909" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.201970" level="INFO">${Cancel_verify_pop_Location} = ["//a[text()='Cancel']"]</msg>
+<var>${Cancel_verify_pop_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.Cancel_verify_pop_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.189911" elapsed="0.012059"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.202957" level="INFO">${Cancel_verify_pop_Location} = //a[text()='Cancel']</msg>
+<var>${Cancel_verify_pop_Location}</var>
+<arg>${Cancel_verify_pop_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.201970" elapsed="0.000987"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.202957" level="INFO">//a[text()='Cancel']</msg>
+<arg>${Cancel_verify_pop_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.202957" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.213000" level="INFO">${playPreferences_Continue_Location} = ["//button[@id='playPreferencesModalContinueBtn']"]</msg>
+<var>${playPreferences_Continue_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.playPreferences_Continue_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.202957" elapsed="0.010043"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.213908" level="INFO">${playPreferences_Continue_Location} = //button[@id='playPreferencesModalContinueBtn']</msg>
+<var>${playPreferences_Continue_Location}</var>
+<arg>${playPreferences_Continue_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.213000" elapsed="0.001955"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.214955" level="INFO">//button[@id='playPreferencesModalContinueBtn']</msg>
+<arg>${playPreferences_Continue_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.214955" elapsed="0.000000"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.225921" level="INFO">${upgradePP_Location} = ["//button[@id='upgradePrivacyPolicyModalAcceptBtn']"]</msg>
+<var>${upgradePP_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.upgradePP_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.214955" elapsed="0.010966"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.226974" level="INFO">${upgradePP_Location} = //button[@id='upgradePrivacyPolicyModalAcceptBtn']</msg>
+<var>${upgradePP_Location}</var>
+<arg>${upgradePP_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.225921" elapsed="0.001053"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.228048" level="INFO">//button[@id='upgradePrivacyPolicyModalAcceptBtn']</msg>
+<arg>${upgradePP_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.226974" elapsed="0.001074"/>
+</kw>
+<kw name="Get Value From Json" owner="JSONLibrary">
+<msg time="2025-05-09T21:27:21.237920" level="INFO">${OK_button_Location} = ["//a[text()='Ok']"]</msg>
+<var>${OK_button_Location}</var>
+<arg>${Registration_file}</arg>
+<arg>$.Registration_path_details.OK_path</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<status status="PASS" start="2025-05-09T21:27:21.228048" elapsed="0.009872"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.238905" level="INFO">${OK_button_Location} = //a[text()='Ok']</msg>
+<var>${OK_button_Location}</var>
+<arg>${OK_button_Location[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.237920" elapsed="0.000985"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.238905" level="INFO">//a[text()='Ok']</msg>
+<arg>${OK_button_Location}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.238905" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.239921" level="INFO">${Register_Location} = //a[text()='Register']</msg>
+<arg>${Register_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.238905" elapsed="0.001016"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.239921" level="INFO">${Email_Location} = //input[@id='email']</msg>
+<arg>${Email_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.239921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.239921" level="INFO">${Password_Location} = //input[@id='password']</msg>
+<arg>${Password_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.239921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.240921" level="INFO">${Email_data} = Maruthiauto29@gmail.com</msg>
+<arg>${Email_data}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.239921" elapsed="0.001000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.240921" level="INFO">${Password_data} = Welcome1</msg>
+<arg>${Password_data}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.240921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.240921" level="INFO">${secq_Location} = //select[@id='securityquestion_0']</msg>
+<arg>${secq_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.240921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.240921" level="INFO">${seca_Location} = //input[@id='securityAnswer_0']</msg>
+<arg>${seca_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.240921" elapsed="0.001000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.241921" level="INFO">${Agree_conti_Location} = //button[@id='connectRegistrationFormSubmit']</msg>
+<arg>${Agree_conti_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.241921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.241921" level="INFO">${closeX_verification_Location} = //div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']</msg>
+<arg>${closeX_verification_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.241921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.241921" level="INFO">${Loginbutton_location} = //button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']</msg>
+<arg>${Loginbutton_location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.241921" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.243039" level="INFO">${username_Location_L} = id:loginModal-username</msg>
+<arg>${username_Location_L}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.241921" elapsed="0.001118"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.243039" level="INFO">${password_Location_L} = id:loginModal-password</msg>
+<arg>${password_Location_L}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.243039" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.243039" level="INFO">${Signin_Location} = //button[@id='loginButton'] | //button[@name='loginSubmit']</msg>
+<arg>${Signin_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.243039" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.244034" level="INFO">${Upgrade_Location} = //a[text()='Upgrade']</msg>
+<arg>${Upgrade_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.243039" elapsed="0.000995"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.244034" level="INFO">${Cancel_verify_pop_Location} = //a[text()='Cancel']</msg>
+<arg>${Cancel_verify_pop_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.244034" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.244034" level="INFO">${playPreferences_Continue_Location} = //button[@id='playPreferencesModalContinueBtn']</msg>
+<arg>${playPreferences_Continue_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.244034" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.245045" level="INFO">${upgradePP_Location} = //button[@id='upgradePrivacyPolicyModalAcceptBtn']</msg>
+<arg>${upgradePP_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.244034" elapsed="0.001011"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.245045" level="INFO">${FirstName_Location} = //input[@id='firstname']</msg>
+<arg>${FirstName_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.245045" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.245045" level="INFO">${LastName_Location} = //input[@id='lastname']</msg>
+<arg>${LastName_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.245045" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.246012" level="INFO">${DOB_Location} = //input[@id='dob']</msg>
+<arg>${DOB_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.246012" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.246012" level="INFO">${Address_Location} = //input[@id='address1']</msg>
+<arg>${Address_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.246012" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.246012" level="INFO">${Town_Location} = //input[@id='town']</msg>
+<arg>${Town_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.246012" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247041" level="INFO">${Zip_Location} = //input[@id='postcode']</msg>
+<arg>${Zip_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.246012" elapsed="0.001029"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247041" level="INFO">${State_Location} = //select[@id='state']</msg>
+<arg>${State_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247041" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247041" level="INFO">${SSN_Location} = //input[@id='socialSecurityNumber']</msg>
+<arg>${SSN_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247041" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247934" level="INFO">${Country_Location} = //select[@id='country']</msg>
+<arg>${Country_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247041" elapsed="0.000893"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247934" level="INFO">${Mobile_no_Location} = //input[@id='mobile']</msg>
+<arg>${Mobile_no_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247934" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.247934" level="INFO">${Consent_TR_Location} = //input[@id='consent-1-check']/following-sibling::label</msg>
+<arg>${Consent_TR_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247934" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.248966" level="INFO">${TC_Location} = //*[@id='regstep2form']/fieldset[4]/div/label</msg>
+<arg>${TC_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.247934" elapsed="0.001032"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.248966" level="INFO">${Reg_Upgrade_submit_Location} = //button[@id='regUpgradeSubmit']</msg>
+<arg>${Reg_Upgrade_submit_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.248966" elapsed="0.000000"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.250016" level="INFO">${Gender_Location} = //select[@id='gender']</msg>
+<arg>${Gender_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.248966" elapsed="0.001050"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-05-09T21:27:21.250016" level="INFO">${OK_button_Location} = //a[text()='Ok']</msg>
+<arg>${OK_button_Location}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-05-09T21:27:21.250016" elapsed="0.000000"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2025-05-09T21:27:20.764911" elapsed="0.485105"/>
+</kw>
+<kw name="Click on Register button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:21.274907" level="INFO">Clicking element '//a[text()='Register']'.</msg>
+<msg time="2025-05-09T21:27:27.847303" level="INFO">Slept 3 seconds.</msg>
+<arg>${Register_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:21.250914" elapsed="6.596389"/>
+</kw>
+<kw name="Enter Email" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:27:27.876439" level="INFO">Clicking element '//input[@id='email']'.</msg>
+<msg time="2025-05-09T21:27:27.933801" level="INFO">Typing text 'Maruthiauto29@gmail.com' into text field '//input[@id='email']'.</msg>
+<msg time="2025-05-09T21:27:28.024801" level="INFO">//input[@id='email']
+Maruthiauto29@gmail.com</msg>
+<arg>${Email_Location}</arg>
+<arg>${Email_data}</arg>
+<status status="PASS" start="2025-05-09T21:27:27.849291" elapsed="0.175510"/>
+</kw>
+<kw name="Enter Password" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:27:28.040817" level="INFO">Clicking element '//input[@id='password']'.</msg>
+<msg time="2025-05-09T21:27:28.097803" level="INFO">Typing text 'Welcome1' into text field '//input[@id='password']'.</msg>
+<msg time="2025-05-09T21:27:28.152822" level="INFO">//input[@id='password']
+Welcome1</msg>
+<arg>${Password_Location}</arg>
+<arg>${Password_data}</arg>
+<status status="PASS" start="2025-05-09T21:27:28.025803" elapsed="0.127019"/>
+</kw>
+<kw name="Select value from secret question list" owner="Common_Base_Repo" source_name="Select value ${Drop_down_Value}">
+<msg time="2025-05-09T21:27:28.167817" level="INFO">Clicking element '//select[@id='securityquestion_0']'.</msg>
+<msg time="2025-05-09T21:27:30.233808" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-05-09T21:27:30.233808" level="INFO">Clicking element '//select[@id='securityquestion_0']/option[contains(text(),"What was the name of your first school teacher?")]'.</msg>
+<msg time="2025-05-09T21:27:30.260656" level="INFO">Value is: What was the name of your first school teacher?
+//select[@id='securityquestion_0']/option[contains(text(),"What was the name of your first school teacher?")]</msg>
+<arg>${secq_Location}</arg>
+<arg>What was the name of your first school teacher?</arg>
+<status status="PASS" start="2025-05-09T21:27:28.153838" elapsed="2.106818"/>
+</kw>
+<kw name="Enter Secret answer" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:27:30.277655" level="INFO">Clicking element '//input[@id='securityAnswer_0']'.</msg>
+<msg time="2025-05-09T21:27:30.336656" level="INFO">Typing text 'njj' into text field '//input[@id='securityAnswer_0']'.</msg>
+<msg time="2025-05-09T21:27:30.384655" level="INFO">//input[@id='securityAnswer_0']
+njj</msg>
+<arg>${seca_Location}</arg>
+<arg>njj</arg>
+<status status="PASS" start="2025-05-09T21:27:30.261658" elapsed="0.122997"/>
+</kw>
+<kw name="Click on Agree and Continue button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:30.401656" level="INFO">Clicking element '//button[@id='connectRegistrationFormSubmit']'.</msg>
+<msg time="2025-05-09T21:27:33.475289" level="INFO">Slept 3 seconds.</msg>
+<arg>${Agree_conti_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:30.385657" elapsed="3.089632"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-09T21:27:38.477384" level="INFO">Slept 5 seconds.</msg>
+<arg>5 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-09T21:27:33.476291" elapsed="5.001917"/>
+</kw>
+<kw name="Click on Close popup" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:38.507764" level="INFO">Clicking element '//div[@id='connectRegistrationAccountVerifyModal']/*//button[@class='close']'.</msg>
+<msg time="2025-05-09T21:27:41.774190" level="INFO">Slept 3 seconds.</msg>
+<arg>${closeX_verification_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:38.479770" elapsed="3.294420"/>
+</kw>
+<kw name="Click on Login in Button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:41.803006" level="INFO">Clicking element '//button[text()='Log In '] | //button[text()='Log In'] | //button[text()='Login ']'.</msg>
+<msg time="2025-05-09T21:27:44.856753" level="INFO">Slept 3 seconds.</msg>
+<arg>${Loginbutton_location}</arg>
+<status status="PASS" start="2025-05-09T21:27:41.775307" elapsed="3.081446"/>
+</kw>
+<kw name="Enter Email" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:27:44.875576" level="INFO">Clicking element 'id:loginModal-username'.</msg>
+<msg time="2025-05-09T21:27:44.922551" level="INFO">Typing text 'Maruthiauto29@gmail.com' into text field 'id:loginModal-username'.</msg>
+<msg time="2025-05-09T21:27:44.975997" level="INFO">id:loginModal-username
+Maruthiauto29@gmail.com</msg>
+<arg>${username_Location_L}</arg>
+<arg>${Email_data}</arg>
+<status status="PASS" start="2025-05-09T21:27:44.857700" elapsed="0.119300"/>
+</kw>
+<kw name="Enter Password" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:27:45.004544" level="INFO">Clicking element 'id:loginModal-password'.</msg>
+<msg time="2025-05-09T21:27:45.060237" level="INFO">Typing text 'Welcome1' into text field 'id:loginModal-password'.</msg>
+<msg time="2025-05-09T21:27:45.150637" level="INFO">id:loginModal-password
+Welcome1</msg>
+<arg>${password_Location_L}</arg>
+<arg>${Password_data}</arg>
+<status status="PASS" start="2025-05-09T21:27:44.978003" elapsed="0.173635"/>
+</kw>
+<kw name="Click on Sign in Button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:45.181596" level="INFO">Clicking element '//button[@id='loginButton'] | //button[@name='loginSubmit']'.</msg>
+<msg time="2025-05-09T21:27:48.385530" level="INFO">Slept 3 seconds.</msg>
+<arg>${Signin_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:45.152625" elapsed="3.232905"/>
+</kw>
+<kw name="Click on playPreferences Continue button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:50.402345" level="INFO">Clicking element '//button[@id='playPreferencesModalContinueBtn']'.</msg>
+<msg time="2025-05-09T21:27:53.476142" level="INFO">Slept 3 seconds.</msg>
+<arg>${playPreferences_Continue_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:48.387531" elapsed="5.088611"/>
+</kw>
+<kw name="Click on upgrade button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:53.508514" level="INFO">Clicking element '//a[text()='Upgrade']'.</msg>
+<msg time="2025-05-09T21:27:58.227904" level="INFO">Slept 3 seconds.</msg>
+<arg>${Upgrade_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:53.479109" elapsed="4.748795"/>
+</kw>
+<kw name="Click on Accept button in Privacy and Policy" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:27:58.245904" level="INFO">Clicking element '//button[@id='upgradePrivacyPolicyModalAcceptBtn']'.</msg>
+<msg time="2025-05-09T21:28:01.297636" level="INFO">Slept 3 seconds.</msg>
+<arg>${upgradePP_Location}</arg>
+<status status="PASS" start="2025-05-09T21:27:58.228906" elapsed="3.069725"/>
+</kw>
+<kw name="Enter First Name" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:01.324330" level="INFO">Clicking element '//input[@id='firstname']'.</msg>
+<msg time="2025-05-09T21:28:01.376764" level="INFO">Typing text 'Maruthi' into text field '//input[@id='firstname']'.</msg>
+<msg time="2025-05-09T21:28:01.445854" level="INFO">//input[@id='firstname']
+Maruthi</msg>
+<arg>${Firstname_Location}</arg>
+<arg>Maruthi</arg>
+<status status="PASS" start="2025-05-09T21:28:01.301674" elapsed="0.144180"/>
+</kw>
+<kw name="Enter Last Name" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:01.467855" level="INFO">Clicking element '//input[@id='lastname']'.</msg>
+<msg time="2025-05-09T21:28:01.557855" level="INFO">Typing text 'Nagandla' into text field '//input[@id='lastname']'.</msg>
+<msg time="2025-05-09T21:28:01.645874" level="INFO">//input[@id='lastname']
+Nagandla</msg>
+<arg>${LastName_Location}</arg>
+<arg>Nagandla</arg>
+<status status="PASS" start="2025-05-09T21:28:01.446854" elapsed="0.199020"/>
+</kw>
+<kw name="Select value of gender" owner="Common_Base_Repo" source_name="Select value ${Drop_down_Value}">
+<msg time="2025-05-09T21:28:01.683854" level="INFO">Clicking element '//select[@id='gender']'.</msg>
+<msg time="2025-05-09T21:28:03.791246" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-05-09T21:28:03.791246" level="INFO">Clicking element '//select[@id='gender']/option[contains(text(),"Male")]'.</msg>
+<msg time="2025-05-09T21:28:03.829375" level="INFO">Value is: Male
+//select[@id='gender']/option[contains(text(),"Male")]</msg>
+<arg>${Gender_Location}</arg>
+<arg>Male</arg>
+<status status="PASS" start="2025-05-09T21:28:01.646855" elapsed="2.182520"/>
+</kw>
+<kw name="Pick DOB From Calender" owner="Common_Base_Repo">
+<msg time="2025-05-09T21:28:03.830376" level="INFO">Clicking element '//input[@id='dob']'.</msg>
+<msg time="2025-05-09T21:28:04.143010" level="INFO">Clicking element '//div[@class='datepicker-years']/*//th[1]'.</msg>
+<msg time="2025-05-09T21:28:04.363836" level="INFO">Clicking element '//div[@class='datepicker-years']/*//th[1]'.</msg>
+<msg time="2025-05-09T21:28:04.590294" level="INFO">Clicking element '//div[@class='datepicker-years']/*//th[1]'.</msg>
+<msg time="2025-05-09T21:28:04.816214" level="INFO">Clicking element '//div[@class='datepicker-years']/*//span[text()='1978']'.</msg>
+<msg time="2025-05-09T21:28:04.866124" level="INFO">Clicking element '//div[@class='datepicker-months']/*//span[text()='Aug']'.</msg>
+<msg time="2025-05-09T21:28:06.920481" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-05-09T21:28:06.920481" level="INFO">Clicking element '//div[@class='datepicker-days']/*//td[text()='12']'.</msg>
+<msg time="2025-05-09T21:28:06.972263" level="INFO">Aug/12/1978
+Aug
+12
+1978
+No of active years available in calender :  12
+['1999', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010']
+No of active years available in calender :  12
+['1989', '1990', '1991', '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000']
+No of active years available in calender :  12
+['1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990']
+No of active years available in calender :  12
+['1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977', '1978', '1979', '1980']</msg>
+<arg>${DOB_Location}</arg>
+<arg>Aug/12/1978</arg>
+<status status="PASS" start="2025-05-09T21:28:03.830376" elapsed="3.141887"/>
+</kw>
+<kw name="Enter Address" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:06.991026" level="INFO">Clicking element '//input[@id='address1']'.</msg>
+<msg time="2025-05-09T21:28:07.054558" level="INFO">Typing text 'Houseno 94' into text field '//input[@id='address1']'.</msg>
+<msg time="2025-05-09T21:28:07.143476" level="INFO">//input[@id='address1']
+Houseno 94</msg>
+<arg>${Address_Location}</arg>
+<arg>Houseno 94</arg>
+<status status="PASS" start="2025-05-09T21:28:06.973201" elapsed="0.170275"/>
+</kw>
+<kw name="Enter Town" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:07.219468" level="INFO">Clicking element '//input[@id='town']'.</msg>
+<msg time="2025-05-09T21:28:07.320536" level="INFO">Typing text 'Sunnyvale' into text field '//input[@id='town']'.</msg>
+<msg time="2025-05-09T21:28:07.388706" level="INFO">//input[@id='town']
+Sunnyvale</msg>
+<arg>${Town_Location}</arg>
+<arg>Sunnyvale</arg>
+<status status="PASS" start="2025-05-09T21:28:07.144469" elapsed="0.245235"/>
+</kw>
+<kw name="Enter Zipcode" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:07.407691" level="INFO">Clicking element '//input[@id='postcode']'.</msg>
+<msg time="2025-05-09T21:28:07.526751" level="INFO">Typing text '52300' into text field '//input[@id='postcode']'.</msg>
+<msg time="2025-05-09T21:28:07.590717" level="INFO">//input[@id='postcode']
+52300</msg>
+<arg>${Zip_Location}</arg>
+<arg>52300</arg>
+<status status="PASS" start="2025-05-09T21:28:07.389704" elapsed="0.202017"/>
+</kw>
+<kw name="Select value of State" owner="Common_Base_Repo" source_name="Select value ${Drop_down_Value}">
+<msg time="2025-05-09T21:28:07.609693" level="INFO">Clicking element '//select[@id='state']'.</msg>
+<msg time="2025-05-09T21:28:09.720052" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-05-09T21:28:09.720052" level="INFO">Clicking element '//select[@id='state']/option[contains(text(),"LA")]'.</msg>
+<msg time="2025-05-09T21:28:09.757543" level="INFO">Value is: LA
+//select[@id='state']/option[contains(text(),"LA")]</msg>
+<arg>${State_Location}</arg>
+<arg>LA</arg>
+<status status="PASS" start="2025-05-09T21:28:07.591721" elapsed="2.165822"/>
+</kw>
+<kw name="Generate 4 Random Number" owner="Registration_Pages">
+<msg time="2025-05-09T21:28:09.758538" level="INFO">Random integer:  1857</msg>
+<msg time="2025-05-09T21:28:09.758538" level="INFO">${SSN_No} = 1857</msg>
+<var>${SSN_No}</var>
+<status status="PASS" start="2025-05-09T21:28:09.758538" elapsed="0.000000"/>
+</kw>
+<kw name="Enter SSN Number" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:09.776537" level="INFO">Clicking element '//input[@id='socialSecurityNumber']'.</msg>
+<msg time="2025-05-09T21:28:09.848540" level="INFO">Typing text '1857' into text field '//input[@id='socialSecurityNumber']'.</msg>
+<msg time="2025-05-09T21:28:09.914122" level="INFO">//input[@id='socialSecurityNumber']
+1857</msg>
+<arg>${SSN_Location}</arg>
+<arg>${SSN_No}</arg>
+<status status="PASS" start="2025-05-09T21:28:09.760540" elapsed="0.154582"/>
+</kw>
+<kw name="Select value from Country" owner="Common_Base_Repo" source_name="Select value ${Drop_down_Value}">
+<msg time="2025-05-09T21:28:09.934120" level="INFO">Clicking element '//select[@id='country']'.</msg>
+<msg time="2025-05-09T21:28:12.041368" level="INFO">Slept 2 seconds.</msg>
+<msg time="2025-05-09T21:28:12.041368" level="INFO">Clicking element '//select[@id='country']/option[contains(text(),"United States")]'.</msg>
+<msg time="2025-05-09T21:28:12.079806" level="INFO">Value is: United States
+//select[@id='country']/option[contains(text(),"United States")]</msg>
+<arg>${Country_Location}</arg>
+<arg>United States</arg>
+<status status="PASS" start="2025-05-09T21:28:09.916121" elapsed="2.163685"/>
+</kw>
+<kw name="Generate 10 Random Number" owner="Registration_Pages">
+<msg time="2025-05-09T21:28:12.081809" level="INFO">Random integer:  3678590654</msg>
+<msg time="2025-05-09T21:28:12.081809" level="INFO">${Mobile_No} = 3678590654</msg>
+<var>${Mobile_No}</var>
+<status status="PASS" start="2025-05-09T21:28:12.080807" elapsed="0.002009"/>
+</kw>
+<kw name="Enter Mobile Number" owner="Common_Base_Repo" source_name="enter ${value}">
+<msg time="2025-05-09T21:28:12.100806" level="INFO">Clicking element '//input[@id='mobile']'.</msg>
+<msg time="2025-05-09T21:28:12.171685" level="INFO">Typing text '3678590654' into text field '//input[@id='mobile']'.</msg>
+<msg time="2025-05-09T21:28:12.242061" level="INFO">//input[@id='mobile']
+3678590654</msg>
+<arg>${Mobile_no_Location}</arg>
+<arg>${Mobile_No}</arg>
+<status status="PASS" start="2025-05-09T21:28:12.083807" elapsed="0.158254"/>
+</kw>
+<kw name="Scroll Down In Page" owner="Registration_Pages">
+<msg time="2025-05-09T21:28:12.243176" level="INFO">Sending key(s) ('PAGE_DOWN',) to page.</msg>
+<msg time="2025-05-09T21:28:12.244177" level="INFO">Pressing special key PAGE_DOWN to browser.</msg>
+<msg time="2025-05-09T21:28:12.244177" level="INFO">Releasing special key PAGE_DOWN.</msg>
+<status status="PASS" start="2025-05-09T21:28:12.243176" elapsed="0.009882"/>
+</kw>
+<kw name="Scroll Down In Page" owner="Registration_Pages">
+<msg time="2025-05-09T21:28:12.254072" level="INFO">Sending key(s) ('PAGE_DOWN',) to page.</msg>
+<msg time="2025-05-09T21:28:12.255079" level="INFO">Pressing special key PAGE_DOWN to browser.</msg>
+<msg time="2025-05-09T21:28:12.255079" level="INFO">Releasing special key PAGE_DOWN.</msg>
+<status status="PASS" start="2025-05-09T21:28:12.254072" elapsed="0.005986"/>
+</kw>
+<kw name="Click on Terms and conditions check box" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:28:12.337088" level="INFO">Clicking element '//*[@id='regstep2form']/fieldset[4]/div/label'.</msg>
+<msg time="2025-05-09T21:28:15.456348" level="INFO">Slept 3 seconds.</msg>
+<arg>${TC_Location}</arg>
+<status status="PASS" start="2025-05-09T21:28:12.261072" elapsed="3.195276"/>
+</kw>
+<kw name="Click on Submit button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:28:15.475809" level="INFO">Clicking element '//button[@id='regUpgradeSubmit']'.</msg>
+<msg time="2025-05-09T21:28:18.531238" level="INFO">Slept 3 seconds.</msg>
+<arg>${Reg_Upgrade_submit_Location}</arg>
+<status status="PASS" start="2025-05-09T21:28:15.457266" elapsed="3.073972"/>
+</kw>
+<kw name="Click on OK button" owner="Common_Base_Repo" source_name="Click on ${Button_Name}">
+<msg time="2025-05-09T21:28:19.057405" level="INFO">Clicking element '//a[text()='Ok']'.</msg>
+<msg time="2025-05-09T21:28:28.506273" level="INFO">Slept 3 seconds.</msg>
+<arg>${OK_button_Location}</arg>
+<status status="PASS" start="2025-05-09T21:28:18.532248" elapsed="9.974025"/>
+</kw>
+<tag>Lite Registration</tag>
+<status status="PASS" start="2025-05-09T21:27:20.762905" elapsed="67.744352"/>
 </test>
-<status status="PASS" start="2025-04-22T16:44:36.403327" elapsed="0.500037"/>
+<status status="PASS" start="2025-05-09T21:27:07.580170" elapsed="80.928085"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">Lite Registration</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Wagering TC DDT">Wagering TC DDT</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Registration">Registration</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-04-22T16:44:36.777380" level="ERROR">Error in file 'c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot' on line 6: Library '..\Libs\Home_Page.py' does not exist.</msg>
-<msg time="2025-04-22T16:44:36.788363" level="ERROR">Error in file 'c:\iLottery PlayInterface Portal\PD22\Resources\Common.robot' on line 3: Importing library '../Libs/Common_Base_Repo' failed: ModuleNotFoundError: No module named '.'
+<msg time="2025-05-09T21:27:08.039226" level="ERROR">Error in file 'c:\automation-interactive-portal\PD22\Testcases\Registration.robot' on line 8: Importing library 'wagering_pages' failed: ModuleNotFoundError: No module named 'wagering_pages'
 Traceback (most recent call last):
   None
 PYTHONPATH:
   c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_debug_adapter
-  C:\iLottery PlayInterface Portal
+  C:\automation-interactive-portal
   c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src
   c:\Users\7191\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_ls\vendored
   C:\Python\Python312\python312.zip
@@ -146,8 +1458,6 @@ PYTHONPATH:
   C:\Python\Python312\Lib
   C:\Python\Python312
   C:\Python\Python312\Lib\site-packages</msg>
-<msg time="2025-04-22T16:44:36.876363" level="ERROR">[ DataDriver ] Error in robot file:
-  File "c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.robot", line 0</msg>
-<msg time="2025-04-22T16:44:36.879364" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: FileNotFoundError: File attribute was empty. Tried to find c:\iLottery PlayInterface Portal\PD22\Testcases\Wagering_TC_DDT.csv but file does not exist. If no file validation is required, set file_search_strategy=None.</msg>
+<msg time="2025-05-09T21:27:08.159767" level="ERROR">Error in file 'c:\automation-interactive-portal\PD22\Resources\Favorites_Keywords.robot' on line 4: Library '..\Libs\Favorites_Pages.py' does not exist.</msg>
 </errors>
 </robot>

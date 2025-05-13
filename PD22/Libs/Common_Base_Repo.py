@@ -35,32 +35,40 @@ class Common_Base_Repo(PageObject):
         def Click_Button(self,Button_Name,XPATH):
                 self.selib.wait_until_element_is_visible(XPATH,30)
                 self.selib.click_element(XPATH)
-                self.builtin.sleep(2)
+                self.builtin.sleep(3)
 
         @keyword('Select value ${Drop_down_Value}')
         def Select_value_from_list(self,onemorevalue,select_location,value):
+                print("Value is:",value)
                 self.selib.wait_until_element_is_visible(select_location,30)
                 self.selib.click_element(select_location)
                 self.builtin.sleep(2)
-                new_xpath = select_location+'/option[text()="'+value+'"]'
+                new_xpath = select_location+'/option[contains(text(),"'+value+'")]'
+                
                 print(new_xpath)
                 self.selib.click_element(new_xpath)
         @keyword('Select Game ${Game_Name}')
-        def Select_Game_from_the_list(self,onemorevalue,Game_Name,Bet_type,Draw_Name):
+        def Select_Game_from_the_list(self,onemorevalue,Game_Name,Bet_type,Draw_Name,flag=0):
 
                 self.builtin.sleep(2)
                 gname = self.convert_game_name_single_string(Game_Name)
-                xpath="//li/a[@class='nav-tile game-tile-jackpot game-tile-jackpot-"+gname+"']"
+                if flag==0:
+                        xpath="//li/a[@class='nav-tile game-tile-jackpot game-tile-jackpot-"+gname+"']"
+                else:
+                        xpath="//li[contains(@class,'favorites')]/a[@data-gamename='"+gname+"']"
                 self.selib.wait_until_element_is_visible(xpath,30)
                 self.selib.click_element(xpath)
+                self.builtin.sleep(3)
                 if('Pick 3' in Game_Name or 'Pick 4' in Game_Name):
+                        print("bet type is:",Bet_type)
+                        print("Draw name is:",Draw_Name)
                         xpath_betType="//select[@id='betType']"
                         xpath_Drawname="//select[@id='drawNames']"
-                        self.Select_value_from_list(xpath_betType,Bet_type)
-                        self.Select_value_from_list(xpath_Drawname,Draw_Name)
+                        self.Select_value_from_list(onemorevalue,xpath_betType,Bet_type)
+                        self.Select_value_from_list(onemorevalue,xpath_Drawname,Draw_Name)
                 if("All or Nothing"in Game_Name):
                         xpath_Drawname="//select[@id='drawNames']"
-                        self.Select_value_from_list(xpath_Drawname,Draw_Name)
+                        self.Select_value_from_list(onemorevalue,xpath_Drawname,Draw_Name)
 
         
         @keyword('Select check box ${Checkbox}')
@@ -173,41 +181,41 @@ class Common_Base_Repo(PageObject):
                 return gname
 
 
-        def import_data_from_xlsx(self,sheetname,xlsx_file):
-                wb = load_workbook(filename=xlsx_file)
+        # def import_data_from_xlsx(self,sheetname,xlsx_file):
+        #         wb = load_workbook(filename=xlsx_file)
 
-                # Select the active worksheet
-                sheet = wb[sheetname]
+        #         # Select the active worksheet
+        #         sheet = wb[sheetname]
 
-                # Get dimensions of the sheet (rows and columns)
-                max_row = sheet.max_row
-                max_column = sheet.max_column
+        #         # Get dimensions of the sheet (rows and columns)
+        #         max_row = sheet.max_row
+        #         max_column = sheet.max_column
 
-                # Accessing cell values
-                print("Contents of the Excel file:")
-                result_data =[]
-                for row in range(1, max_row):
-                        row_data = []
-                        for column in range(1, max_column):
-                                cell_value = sheet.cell(row=row+1, column=column+1).value
-                                print(f"Row {row}, Column {column}: {cell_value}")
-                                if isinstance(cell_value,float):
-                                        data=int(cell_value)
-                                else:
-                                        data=str(cell_value)   
+        #         # Accessing cell values
+        #         print("Contents of the Excel file:")
+        #         result_data =[]
+        #         for row in range(1, max_row):
+        #                 row_data = []
+        #                 for column in range(1, max_column):
+        #                         cell_value = sheet.cell(row=row+1, column=column+1).value
+        #                         print(f"Row {row}, Column {column}: {cell_value}")
+        #                         if isinstance(cell_value,float):
+        #                                 data=int(cell_value)
+        #                         else:
+        #                                 data=str(cell_value)   
                         
-                                print('data='+str(data))
-                                data1=str(data)
-                                row_data.append(data1)
-                        result_data.append(row_data)
-                # Accessing specific cells
-                # For example, accessing cell A1
-                cell_A1 = sheet['A1'].value
-                print("\nValue in cell A1:", cell_A1)
+        #                         print('data='+str(data))
+        #                         data1=str(data)
+        #                         row_data.append(data1)
+        #                 result_data.append(row_data)
+        #         # Accessing specific cells
+        #         # For example, accessing cell A1
+        #         cell_A1 = sheet['A1'].value
+        #         print("\nValue in cell A1:", cell_A1)
 
-                # Close the workbook
-                wb.close()
-                return  result_data
+        #         # Close the workbook
+        #         wb.close()
+        #         return  result_data
         
         def import_data_from_xlsx(self,sheetname,xlsx_file):
 
@@ -230,7 +238,40 @@ class Common_Base_Repo(PageObject):
 
                 wb_obj.close()
                 return excel_data  
-        
+        				
+        def export_data_from_xlsx(self,sheetname,xlsx_file,c1,c2,c3,c4,counter):
+                print("vio",c1)
+                print("Inapp",c2)
+                print("Incomp",c3)
+                print("Pass",c4)
+                print("row value is",counter)
+
+                wb_obj = openpyxl.load_workbook(filename=xlsx_file)
+
+                sheet_obj = wb_obj[sheetname]
+                max_col = 6
+                max_rows = sheet_obj.max_row
+                        # for counter in range(counter+2, max_rows + 1):
+                        #         b1 = sheet_obj.cell(row = counter, column = max_col + 1) 
+                        #         b2 = sheet_obj.cell(row = counter, column = max_col + 2) 
+                        #         b3 = sheet_obj.cell(row = counter, column = max_col + 3) 
+                        #         b4 = sheet_obj.cell(row = counter, column = max_col + 4) 
+                        #         # writing values to cells 
+                        #         b1.value = c1
+                        #         b2.value = c2
+                        #         b3.value = c3
+                        #         b4.value = c4
+                b1 = sheet_obj.cell(row = counter+2, column = max_col + 1) 
+                b2 = sheet_obj.cell(row = counter+2, column = max_col + 2) 
+                b3 = sheet_obj.cell(row = counter+2, column = max_col + 3) 
+                b4 = sheet_obj.cell(row = counter+2, column = max_col + 4) 
+                # writing values to cells 
+                b1.value = c1
+                b2.value = c2
+                b3.value = c3
+                b4.value = c4
+
+                wb_obj.save(filename=xlsx_file)
         
         
         

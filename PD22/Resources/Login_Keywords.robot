@@ -34,7 +34,7 @@ Enter User Name and Password
     Click Element    ${password_xpath}
     Input Text    ${password_xpath}    ${password}
     sleep   3 seconds
-Click on Sign in Button
+Click Sign in Button
     Click Element    ${Sign_In_Button_xpath}
     sleep   5 seconds
     ${Result}=     Run Keyword And Return Status   wait until page contains element    ${Cancel_consents_xpath}    ${delay} 
