@@ -16,7 +16,8 @@ Suite Setup   BeforeSuite
 *** Variables ***
 ${browser_type}    Chrome
 ${url}    https://kyssit2.igtilotterycmdtest.com/en-us/home.html
-${Email}    maruthi155@igt.com    
+${Email}    maruthi155@igt.com  
+  
 ${password}    Welcome1
 # ${delay}    50 seconds
 ${Sheet_Name}    Wagering
